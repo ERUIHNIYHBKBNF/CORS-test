@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+  <title>CORS-test</title>
+</head>
+<body>
+  <script>
+    const baseUrl = "http://localhost:8080/";
+    function simpleGet() {
+      console.log("GET");
+      fetch(baseUrl + "get", {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "text/plain",
+        }
+      })
+        .then(data => console.log(data))
+        .catch(error => console.log(error));
+    }
+    function get() {
+      console.log("GET");
+      fetch(baseUrl + "get", {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "text/plain",
+          "Authorization": "Bearer ",
+        }
+      })
+        .then(data => console.log(data))
+        .catch(error => console.log(error));
+    }
+    function post() {
+      console.log("POST");
+      fetch(baseUrl + "post", {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "text/plain",
+          "Authorization": "Bearer ",
+        }
+      }).then(res => console.log(res))
+        .catch(error => console.log(error));
+    }
+    function put() {
+      console.log("put");
+      fetch(baseUrl + "put", {
+        method: "PUT",
+        mode: "cors",
+        headers: {
+          "Content-Type": "text/plain",
+          "Authorization": "Bearer ",
+        }
+      }).then(res => console.log(res))
+        .catch(error => console.log(error));
+    }
+  </script>
+  <button onclick="simpleGet()">
+    simple GET
+  </button>
+  <button onclick="get()">
+    GET
+  </button>
+  <button onclick="post()">
+    POST
+  </button>
+  <button onclick="put()">
+    PUT
+  </button>
+</body>
